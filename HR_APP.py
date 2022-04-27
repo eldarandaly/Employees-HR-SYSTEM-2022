@@ -1641,10 +1641,14 @@ class viewattendance(QWidget):
         self.ui.searchattrep.setVisible(False)
         self.ui.label_2.setVisible(False)
     def goback(self):
-        Newviewreport = viewreportmenu()
-        widget.addWidget(Newviewreport)
+        Newmenu = EmployeeMenu(self)
+        widget.addWidget(Newmenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
         widget.setWindowTitle(" View Report Menu")  
+       # Newviewreport = viewreportmenu(self)
+        #widget.addWidget(Newviewreport)
+        #widget.setCurrentIndex(widget.currentIndex() + 1)
+        #widget.setWindowTitle(" View Report Menu")  
     def saveexcelatt(self):
         conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
@@ -1675,10 +1679,14 @@ class viewaccess(QWidget):
     def saveexcelacc(self):
         conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
-        db_df = pd.read_sql_query("SELECT * FROM EmployeeAccess", conn)
-        db_df.to_csv('database.csv', index=False)
+       # db_df = pd.read_sql_query("SELECT * FROM EmployeeAccess", conn)
+        #db_df.to_csv('database.csv', index=False)
+        
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+
 
         QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
+        
         conn.close()
     
 class searchattreport(QWidget):
@@ -1689,7 +1697,7 @@ class searchattreport(QWidget):
         widget.setGeometry(100,100,783,560)
         self.ui.searchattrep.clicked.connect(self.search)
         self.ui.backattrep_btn.clicked.connect(self.goback)
-        self.ui.pushButton.setVisible(False)
+        #self.ui.pushButton.setVisible(False)
     def search(self):
         conn = sqlite3.connect("./DataBaseTable.db")
         conn.text_factory=str
@@ -1703,9 +1711,13 @@ class searchattreport(QWidget):
             for colum_number, data in enumerate(row_data):
                 self.ui.tableWidget.setItem(row_number, colum_number, QTableWidgetItem(str(data)))
     def goback(self):
-        Newviewreport = viewreportmenu()
-        widget.addWidget(Newviewreport)
+        Newmenu = viewreportmenu(self)
+        widget.addWidget(Newmenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setWindowTitle(" View Report Menu")  
+        #Newviewreport = viewreportmenu()
+        #widget.addWidget(Newviewreport)
+        #widget.setCurrentIndex(widget.currentIndex() + 1)
         
 class searchaccreport(QWidget):
     def __init__(self):
@@ -1729,9 +1741,13 @@ class searchaccreport(QWidget):
             for colum_number, data in enumerate(row_data):
                 self.ui.tableWidget.setItem(row_number, colum_number, QTableWidgetItem(str(data)))
     def goback(self):
-        Newviewreport = viewreportmenu()
-        widget.addWidget(Newviewreport)
+        Newmenu = viewreportmenu(self)
+        widget.addWidget(Newmenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setWindowTitle(" View Report Menu")  
+     #   Newviewreport = viewreportmenu()
+      #  widget.addWidget(Newviewreport)
+       # widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 

@@ -1,30 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'AttendanceViewReportladnLG.ui'
+## Form generated from reading UI file 'AttendanceViewReport.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-import sqlite3
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
-class Ui_AttendanceView(object):
-    def loadData(self):
-        conn=sqlite3.connect('./DataBaseTable.db')
-        query='SELECT * FROM AttendanceSheet'
-        result=conn.execute(query)
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(result):
-            self.tableWidget.insertRow(row_number)
-            for colum_number, data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, colum_number, QTableWidgetItem(str(data)))
 
-        conn.close()
+class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
