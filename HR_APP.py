@@ -1585,12 +1585,13 @@ class viewreportmenu(QWidget):
             self.ui.setupUi(self)
             self.userType=usertype
             widget.setGeometry(100,100,575,539)
-            # self.ui.attendanceviewreport_btn.clicked.connect(self.gotoattendance)
-            # self.ui.accessviewreport_btn.clicked.connect(self.gotoaccess)
+            self.ui.attendanceviewreport_btn.clicked.connect(self.gotoattendance)
+            self.ui.accessviewreport_btn.clicked.connect(self.gotoaccess)
             self.ui.backreport_btn.clicked.connect(self.goback)
+           # self.ui.pushButton_2.clicked.connect(self.gotoaccess)
             # self.ui.customreport_btn.clicked.connect(self.gotochoice)
-            self.ui.attendanceviewreport_btn.clicked.connect(self.searchatt) 
-            self.ui.accessviewreport_btn.clicked.connect(self.searchacc)
+            #self.ui.attendanceviewreport_btn.clicked.connect(self.searchatt) 
+            #self.ui.accessviewreport_btn.clicked.connect(self.searchacc)
 
         
 
@@ -1600,6 +1601,13 @@ class viewreportmenu(QWidget):
             widget.addWidget(Newviewatt)
             widget.setCurrentIndex(widget.currentIndex()+1)
             widget.setWindowTitle("View Attendance Report")
+
+        #def gotoaccsee(self):
+         #   Newviewatt= viewaccess()
+          #  widget.addWidget(Newviewatt)
+           # widget.setCurrentIndex(widget.currentIndex()+1)
+            #widget.setWindowTitle("View access Report")
+
 
         # def gotochoice(self):
         #     # self.ui.customreport_btn.setVisible(False)
@@ -1640,6 +1648,16 @@ class viewattendance(QWidget):
         self.ui.lineEdit_attrep.setVisible(False)
         self.ui.searchattrep.setVisible(False)
         self.ui.label_2.setVisible(False)
+        self.ui.pushButton_2.clicked.connect(self.gotoattendance)
+
+    def gotoattendance(self):
+        gotosearchatt = searchattreport()
+        widget.addWidget(gotosearchatt)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setWindowTitle(" View Report Menu")  
+                
+
+
     def goback(self):
         Newmenu = EmployeeMenu(self)
         widget.addWidget(Newmenu)
@@ -1669,6 +1687,13 @@ class viewaccess(QWidget):
         self.ui.lineEdit_accrep.setVisible(False)
         self.ui.searchaccrep.setVisible(False)
         self.ui.label_2.setVisible(False)
+        self.ui.pushButton_2.clicked.connect(self.goto_access)
+
+    def goto_access(self):
+        gotosearchatt = searchaccreport()
+        widget.addWidget(gotosearchatt)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setWindowTitle(" View Report Menu")
 
     def goback(self):
         Newviewreport = viewreportmenu()
@@ -1728,6 +1753,8 @@ class searchaccreport(QWidget):
         self.ui.searchaccrep.clicked.connect(self.search)
         self.ui.backaccrep_btn.clicked.connect(self.goback)
         # self.ui.pushButton.setVisible(False)
+
+        self.ui.pushButton.clicked.connect(self.exporttoexcel)
     def search(self):
         conn = sqlite3.connect("./DataBaseTable.db")
         conn.text_factory=str
@@ -1735,6 +1762,11 @@ class searchaccreport(QWidget):
         self.search=self.ui.lineEdit_accrep.text()
         cursor.execute('SELECT * FROM EmployeeAccess WHERE Emp_ID=?', (self.search,))
         result=cursor.fetchall()
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+
+
+
         self.ui.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.tableWidget.insertRow(row_number)
@@ -1748,6 +1780,18 @@ class searchaccreport(QWidget):
      #   Newviewreport = viewreportmenu()
       #  widget.addWidget(Newviewreport)
        # widget.setCurrentIndex(widget.currentIndex() + 1)
+    def exporttoexcel(self):
+      #  conn = sqlite3.connect("./DataBaseTable.db")
+       # conn.text_factory=str
+        conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
+                       detect_types=sqlite3.PARSE_COLNAMES)
+        #db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet WHERE Emp_ID=?",(self.ui.lineEdit_accrep.text()), conn)
+        #db_df.to_csv('database.csv', index=False)
+
+        
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
+
 
 
 
