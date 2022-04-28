@@ -1598,6 +1598,7 @@ class viewreportmenu(QWidget):
             self.ui.attendanceviewreport_btn.clicked.connect(self.gotoattendance)
             self.ui.accessviewreport_btn.clicked.connect(self.gotoaccess)
             self.ui.backreport_btn.clicked.connect(self.goback)
+            self.ui.customreport_btn.setVisible(False)
            # self.ui.pushButton_2.clicked.connect(self.gotoaccess)
             # self.ui.customreport_btn.clicked.connect(self.gotochoice)
             #self.ui.attendanceviewreport_btn.clicked.connect(self.searchatt) 
