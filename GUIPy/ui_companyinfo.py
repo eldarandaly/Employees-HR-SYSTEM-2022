@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'companyinfoJRvUDJ.ui'
+## Form generated from reading UI file 'companyinfojjnZRt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 
 class Ui_Form(object):
@@ -752,42 +751,32 @@ class Ui_Form(object):
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
         self.groupBox_2 = QGroupBox(self.page1)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(90, 130, 510, 211))
+        self.groupBox_2.setGeometry(QRect(90, 130, 510, 351))
         self.groupBox_2.setFlat(True)
-        self.gridLayout = QGridLayout(self.groupBox_2)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.jobid_line = QLineEdit(self.groupBox_2)
-        self.jobid_line.setObjectName(u"jobid_line")
-        self.jobid_line.setStyleSheet(u"\n"
-"border-width: 1px; border-radius: 4px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"	border-style: solid;\n"
-"	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout.addWidget(self.jobid_line, 0, 0, 1, 1)
-
         self.label_3 = QLabel(self.groupBox_2)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(9, 107, 49, 19))
         self.label_3.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout.addWidget(self.label_3, 1, 0, 1, 1)
-
         self.job_line = QLineEdit(self.groupBox_2)
         self.job_line.setObjectName(u"job_line")
+        self.job_line.setGeometry(QRect(9, 208, 491, 33))
         self.job_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout.addWidget(self.job_line, 2, 0, 1, 1)
-
         self.label_4 = QLabel(self.groupBox_2)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(9, 250, 117, 19))
         self.label_4.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
-
+        self.jobid_line = QLineEdit(self.groupBox_2)
+        self.jobid_line.setObjectName(u"jobid_line")
+        self.jobid_line.setGeometry(QRect(9, 70, 501, 33))
+        self.jobid_line.setStyleSheet(u"\n"
+"border-width: 1px; border-radius: 4px;\n"
+"background-color: rgb(255, 255, 255);\n"
+"	border-style: solid;\n"
+"	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
         self.splitter_4 = QSplitter(self.page1)
         self.splitter_4.setObjectName(u"splitter_4")
         self.splitter_4.setGeometry(QRect(190, 506, 351, 41))
@@ -969,75 +958,57 @@ class Ui_Form(object):
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
         self.groupBox_5 = QGroupBox(self.page2)
         self.groupBox_5.setObjectName(u"groupBox_5")
-        self.groupBox_5.setGeometry(QRect(90, 110, 601, 351))
+        self.groupBox_5.setGeometry(QRect(90, 110, 601, 391))
         self.groupBox_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.groupBox_5.setFlat(True)
-        self.gridLayout_4 = QGridLayout(self.groupBox_5)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.label_6 = QLabel(self.groupBox_5)
         self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(9, 170, 161, 19))
         self.label_6.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_4.addWidget(self.label_6, 3, 1, 1, 1)
-
         self.label_5 = QLabel(self.groupBox_5)
         self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(9, 90, 181, 19))
         self.label_5.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_4.addWidget(self.label_5, 1, 1, 1, 1)
-
         self.label_7 = QLabel(self.groupBox_5)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(9, 270, 111, 19))
         self.label_7.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_4.addWidget(self.label_7, 5, 1, 1, 1)
-
         self.att_line = QLineEdit(self.groupBox_5)
         self.att_line.setObjectName(u"att_line")
+        self.att_line.setGeometry(QRect(9, 140, 481, 33))
         self.att_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_4.addWidget(self.att_line, 2, 1, 1, 1)
-
         self.leave_line = QLineEdit(self.groupBox_5)
         self.leave_line.setObjectName(u"leave_line")
+        self.leave_line.setGeometry(QRect(10, 330, 471, 33))
         self.leave_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_4.addWidget(self.leave_line, 6, 1, 1, 1)
-
         self.arrive_line = QLineEdit(self.groupBox_5)
         self.arrive_line.setObjectName(u"arrive_line")
+        self.arrive_line.setGeometry(QRect(9, 240, 481, 33))
         self.arrive_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_4.addWidget(self.arrive_line, 4, 1, 1, 1)
-
         self.attid_line = QLineEdit(self.groupBox_5)
         self.attid_line.setObjectName(u"attid_line")
+        self.attid_line.setGeometry(QRect(9, 60, 481, 33))
         self.attid_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_4.addWidget(self.attid_line, 0, 1, 1, 1)
-
         self.label_8 = QLabel(self.groupBox_5)
         self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(9, 360, 111, 19))
         self.label_8.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_4.addWidget(self.label_8, 7, 1, 1, 1)
-
         self.splitter_3 = QSplitter(self.page2)
         self.splitter_3.setObjectName(u"splitter_3")
         self.splitter_3.setGeometry(QRect(190, 506, 351, 41))
@@ -1214,75 +1185,57 @@ class Ui_Form(object):
         self.lineEdit_5.setGeometry(QRect(200, 60, 210, 31))
         self.groupBox_4 = QGroupBox(self.page3)
         self.groupBox_4.setObjectName(u"groupBox_4")
-        self.groupBox_4.setGeometry(QRect(90, 110, 601, 351))
+        self.groupBox_4.setGeometry(QRect(90, 110, 601, 381))
         self.groupBox_4.setAlignment(Qt.AlignJustify|Qt.AlignVCenter)
         self.groupBox_4.setFlat(True)
-        self.gridLayout_3 = QGridLayout(self.groupBox_4)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gateid_line = QLineEdit(self.groupBox_4)
         self.gateid_line.setObjectName(u"gateid_line")
+        self.gateid_line.setGeometry(QRect(9, 60, 521, 33))
         self.gateid_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_3.addWidget(self.gateid_line, 0, 0, 1, 1)
-
         self.camip_line = QLineEdit(self.groupBox_4)
         self.camip_line.setObjectName(u"camip_line")
+        self.camip_line.setGeometry(QRect(9, 230, 521, 33))
         self.camip_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_3.addWidget(self.camip_line, 4, 0, 1, 1)
-
         self.label_10 = QLabel(self.groupBox_4)
         self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(9, 170, 91, 19))
         self.label_10.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_3.addWidget(self.label_10, 3, 0, 1, 1)
-
         self.gatelock_line = QLineEdit(self.groupBox_4)
         self.gatelock_line.setObjectName(u"gatelock_line")
+        self.gatelock_line.setGeometry(QRect(9, 310, 521, 33))
         self.gatelock_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_3.addWidget(self.gatelock_line, 6, 0, 1, 1)
-
         self.label_9 = QLabel(self.groupBox_4)
         self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(9, 90, 61, 19))
         self.label_9.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_3.addWidget(self.label_9, 1, 0, 1, 1)
-
         self.gate_line = QLineEdit(self.groupBox_4)
         self.gate_line.setObjectName(u"gate_line")
+        self.gate_line.setGeometry(QRect(9, 140, 521, 33))
         self.gate_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_3.addWidget(self.gate_line, 2, 0, 1, 1)
-
         self.label_11 = QLabel(self.groupBox_4)
         self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(9, 260, 131, 19))
         self.label_11.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_3.addWidget(self.label_11, 5, 0, 1, 1)
-
         self.label_12 = QLabel(self.groupBox_4)
         self.label_12.setObjectName(u"label_12")
+        self.label_12.setGeometry(QRect(9, 340, 101, 19))
         self.label_12.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_3.addWidget(self.label_12, 7, 0, 1, 1)
-
         self.splitter_2 = QSplitter(self.page3)
         self.splitter_2.setObjectName(u"splitter_2")
         self.splitter_2.setGeometry(QRect(190, 506, 351, 41))
@@ -1462,75 +1415,57 @@ class Ui_Form(object):
         self.search_access.setIconSize(QSize(32, 32))
         self.groupBox_3 = QGroupBox(self.page4)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.groupBox_3.setGeometry(QRect(90, 110, 601, 351))
+        self.groupBox_3.setGeometry(QRect(90, 110, 601, 381))
         self.groupBox_3.setAlignment(Qt.AlignJustify|Qt.AlignTop)
         self.groupBox_3.setFlat(True)
-        self.gridLayout_2 = QGridLayout(self.groupBox_3)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.accessschemeid_line = QLineEdit(self.groupBox_3)
         self.accessschemeid_line.setObjectName(u"accessschemeid_line")
+        self.accessschemeid_line.setGeometry(QRect(9, 50, 481, 33))
         self.accessschemeid_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_2.addWidget(self.accessschemeid_line, 0, 0, 1, 1)
-
         self.label_28 = QLabel(self.groupBox_3)
         self.label_28.setObjectName(u"label_28")
+        self.label_28.setGeometry(QRect(9, 80, 151, 19))
         self.label_28.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_2.addWidget(self.label_28, 1, 0, 1, 1)
-
         self.gateid_line_3 = QLineEdit(self.groupBox_3)
         self.gateid_line_3.setObjectName(u"gateid_line_3")
+        self.gateid_line_3.setGeometry(QRect(9, 140, 481, 33))
         self.gateid_line_3.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_2.addWidget(self.gateid_line_3, 2, 0, 1, 1)
-
         self.label_27 = QLabel(self.groupBox_3)
         self.label_27.setObjectName(u"label_27")
+        self.label_27.setGeometry(QRect(9, 170, 61, 19))
         self.label_27.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_2.addWidget(self.label_27, 3, 0, 1, 1)
-
         self.jobsallowed_line = QLineEdit(self.groupBox_3)
         self.jobsallowed_line.setObjectName(u"jobsallowed_line")
+        self.jobsallowed_line.setGeometry(QRect(9, 220, 491, 33))
         self.jobsallowed_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_2.addWidget(self.jobsallowed_line, 4, 0, 1, 1)
-
         self.label_25 = QLabel(self.groupBox_3)
         self.label_25.setObjectName(u"label_25")
+        self.label_25.setGeometry(QRect(9, 250, 111, 19))
         self.label_25.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_2.addWidget(self.label_25, 5, 0, 1, 1)
-
         self.category_line = QLineEdit(self.groupBox_3)
         self.category_line.setObjectName(u"category_line")
+        self.category_line.setGeometry(QRect(9, 310, 491, 33))
         self.category_line.setStyleSheet(u"\n"
 "border-width: 1px; border-radius: 4px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));")
-
-        self.gridLayout_2.addWidget(self.category_line, 6, 0, 1, 1)
-
         self.label_26 = QLabel(self.groupBox_3)
         self.label_26.setObjectName(u"label_26")
+        self.label_26.setGeometry(QRect(9, 340, 81, 19))
         self.label_26.setStyleSheet(u"font: 25 12pt \"Bahnschrift Light\";")
-
-        self.gridLayout_2.addWidget(self.label_26, 7, 0, 1, 1)
-
         self.splitter = QSplitter(self.page4)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setGeometry(QRect(190, 506, 351, 41))
@@ -1667,22 +1602,22 @@ class Ui_Form(object):
         self.back_btn.setText(QCoreApplication.translate("Form", u"Back", None))
         self.search_dep.setText("")
         self.groupBox.setTitle(QCoreApplication.translate("Form", u"Department", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Department ID:", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Department Name:", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Department ID*", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Department Name*", None))
         self.insert_dep.setText(QCoreApplication.translate("Form", u"Insert", None))
         self.save_dep.setText(QCoreApplication.translate("Form", u"Save ", None))
         self.search_job.setText("")
         self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Job Title's ", None))
-        self.label_3.setText(QCoreApplication.translate("Form", u"Job ID:", None))
-        self.label_4.setText(QCoreApplication.translate("Form", u"Job Description:", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Job ID*", None))
+        self.label_4.setText(QCoreApplication.translate("Form", u"Job Description*", None))
         self.insert_job.setText(QCoreApplication.translate("Form", u"Insert", None))
         self.save_job.setText(QCoreApplication.translate("Form", u"Save", None))
         self.search_att.setText("")
         self.groupBox_5.setTitle(QCoreApplication.translate("Form", u" Working Type", None))
-        self.label_6.setText(QCoreApplication.translate("Form", u"Attendnace Scheme", None))
-        self.label_5.setText(QCoreApplication.translate("Form", u"Attendnace Scheme ID:", None))
-        self.label_7.setText(QCoreApplication.translate("Form", u"Arriving Time:", None))
-        self.label_8.setText(QCoreApplication.translate("Form", u"Leaving Time:", None))
+        self.label_6.setText(QCoreApplication.translate("Form", u"Attendnace Scheme*", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"Attendnace Scheme ID*", None))
+        self.label_7.setText(QCoreApplication.translate("Form", u"Arriving Time*", None))
+        self.label_8.setText(QCoreApplication.translate("Form", u"Leaving Time*", None))
         self.insert_att.setText(QCoreApplication.translate("Form", u"Insert", None))
         self.save_att.setText(QCoreApplication.translate("Form", u"Save", None))
         self.search_gates.setText("")
@@ -1692,10 +1627,10 @@ class Ui_Form(object):
 "	border-style: solid;\n"
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"Gates ", None))
-        self.label_10.setText(QCoreApplication.translate("Form", u"Gate Name:", None))
-        self.label_9.setText(QCoreApplication.translate("Form", u"Gate ID:", None))
-        self.label_11.setText(QCoreApplication.translate("Form", u"Gate Camera IP :", None))
-        self.label_12.setText(QCoreApplication.translate("Form", u"Gate lock IP :", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"Gate Name*", None))
+        self.label_9.setText(QCoreApplication.translate("Form", u"Gate ID*", None))
+        self.label_11.setText(QCoreApplication.translate("Form", u"Gate Camera IP *", None))
+        self.label_12.setText(QCoreApplication.translate("Form", u"Gate lock IP *", None))
         self.insert_gate.setText(QCoreApplication.translate("Form", u"Insert", None))
         self.save_gate.setText(QCoreApplication.translate("Form", u"Save", None))
         self.searchid_1.setStyleSheet(QCoreApplication.translate("Form", u"\n"
@@ -1705,10 +1640,10 @@ class Ui_Form(object):
 "	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));", None))
         self.search_access.setText("")
         self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"Access", None))
-        self.label_28.setText(QCoreApplication.translate("Form", u"AccessSchemeID", None))
-        self.label_27.setText(QCoreApplication.translate("Form", u"GateID", None))
-        self.label_25.setText(QCoreApplication.translate("Form", u"JobsAllowed", None))
-        self.label_26.setText(QCoreApplication.translate("Form", u"Category", None))
+        self.label_28.setText(QCoreApplication.translate("Form", u"AccessSchemeID*", None))
+        self.label_27.setText(QCoreApplication.translate("Form", u"GateID*", None))
+        self.label_25.setText(QCoreApplication.translate("Form", u"JobsAllowed*", None))
+        self.label_26.setText(QCoreApplication.translate("Form", u"Category*", None))
         self.insert_access.setText(QCoreApplication.translate("Form", u"Insert", None))
         self.save_access.setText(QCoreApplication.translate("Form", u"Save", None))
     # retranslateUi
