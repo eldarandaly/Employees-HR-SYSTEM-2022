@@ -124,7 +124,7 @@ class LoginScreen(QDialog):
 
         else:
             
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             #-----username= admin password 1234
             query = 'SELECT User_Password,User_type FROM Users WHERE User_Name =\''+self.user+"\'"
@@ -429,7 +429,7 @@ class NewEmployee(QDialog):
         
     def genID(self):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        db_path = os.path.join(BASE_DIR, "DataBaseTable.db")
+        db_path = os.path.join(BASE_DIR, "SeniorDataBase.db")
         with sqlite3.connect(db_path) as db:
             cursor=db.cursor()
            
@@ -443,7 +443,7 @@ class NewEmployee(QDialog):
 
     def getCompayinfo(self):
 
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
             
@@ -475,7 +475,8 @@ class NewEmployee(QDialog):
 
         if dept_names1 == []:
             print("you cant add New Employee you must First ADD Company Dept's")
-           
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.FirstUi.Next_btn.setEnabled(False)
         else:
             count=0
             self.FirstUi.dep_drop_3.addItem("")
@@ -487,8 +488,8 @@ class NewEmployee(QDialog):
 
         if  JobTitles == []:
             print("you cant add New Employee you must First ADD Company Job Titles's")
-           
-            # self.FirstUi.save_btn_3.setEnabled(False)     
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.FirstUi.Next_btn.setEnabled(False)  
         else:
             count=0
             self.FirstUi.job_drop_3.addItem("")
@@ -498,7 +499,8 @@ class NewEmployee(QDialog):
 
         if attendanceSchem1 ==[]:
             print("you cant add New Employee you must First ADD Company attendance Schem")
-                 
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First") 
+            self.FirstUi.Next_btn.setEnabled(False)    
         else:
             count=0 
             self.FirstUi.att_drop_3.addItem("")
@@ -508,7 +510,8 @@ class NewEmployee(QDialog):
 
         if accesSchem1 ==[]:
             print("you cant add New Employee you must First ADD Company Access Schem")  
-                  
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First") 
+            self.FirstUi.Next_btn.setEnabled(False)     
         else:
             count=0 
             self.FirstUi.acc_drop_3.addItem("")
@@ -518,7 +521,8 @@ class NewEmployee(QDialog):
         
         if Gates1 ==[]:
             print("you cant add New Employee you must First ADD Number Of Gates")  
-                  
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First") 
+            self.FirstUi.Next_btn.setEnabled(False)     
         else:
             count=0 
             # self.FirstUi.gateslist.addItem("")
@@ -544,7 +548,7 @@ class NewEmployee(QDialog):
         
   
     def SaveOnDataBase(self):
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
 
@@ -691,7 +695,7 @@ class NewEmployee(QDialog):
 
                         cv2.rectangle(cropface, (x, y), (x2, y2), (0, 0, 255), 4)
                         cv2.putText(cropface,str(count),(50,50),cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,(255,255,0),3)
-                        ConvertToQtFormat = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
+                        ConvertToQtFormat = QImage(cropface.data, cropface.shape[1], cropface.shape[0], QImage.Format_RGB888)
                         self.ImageUpdate.emit(ConvertToQtFormat)
                         # cv2.imshow("Getting Employee face",face)
                 elif len(location)> 1:
@@ -700,7 +704,7 @@ class NewEmployee(QDialog):
                 if cv2.waitKey(1)==13 or count==30:
                     QMessageBox.about(self,"INFO","Employee with ID : "+str(self.capture_Emp_ID)+"Dataset has Been Taken")
                     self.FirstUi.Error.setText("Procces Done")
-                    # self.FirstUi.stackedWidget.setCurrentWidget(self.FirstUi.BasicInfoPage)
+                    self.FirstUi.stackedWidget.setCurrentWidget(self.FirstUi.BasicInfoPage)
                     self.FirstUi.save_btn.setVisible(True)
                     self.FirstUi.Start_btn.setVisible(False)
                     self.FirstUi.New_btn.setVisible(True)
@@ -744,7 +748,7 @@ class EditEmployee(QDialog): # ----need to add function delete
 
     def getCompayinfo(self):
 
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
             
@@ -778,7 +782,8 @@ class EditEmployee(QDialog): # ----need to add function delete
 
         if dept_names1 == []:
             print("you cant add New Employee you must First ADD Company Dept's")
-           
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.ui.Next_btn.setEnabled(False)
         else:
             count=0
             self.ui.dep_drop_3.addItem("")
@@ -788,7 +793,9 @@ class EditEmployee(QDialog): # ----need to add function delete
 
 
         if  JobTitles == []:
-            print("you cant add New Employee you must First ADD Company Job Titles's")     
+            print("you cant add New Employee you must First ADD Company Job Titles's")
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.ui.Next_btn.setEnabled(False)     
         else:
             count=0
             self.ui.job_drop_3.addItem("")
@@ -798,7 +805,8 @@ class EditEmployee(QDialog): # ----need to add function delete
 
         if attendanceSchem1 ==[]:
             print("you cant add New Employee you must First ADD Company attendance Schem")
-                 
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")     
+            self.ui.Next_btn.setEnabled(False)
         else:
             count=0 
             self.ui.att_drop_3.addItem("")
@@ -808,7 +816,8 @@ class EditEmployee(QDialog): # ----need to add function delete
 
         if accesSchem1 ==[]:
             print("you cant add New Employee you must First ADD Company Access Schem")  
-                  
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.ui.Next_btn.setEnabled(False)      
         else:
             count=0 
             self.ui.acc_drop_3.addItem("")
@@ -818,7 +827,8 @@ class EditEmployee(QDialog): # ----need to add function delete
 
         if Gates1 ==[]:
             print("you cant add New Employee you must First ADD Number Of Gates")  
-                  
+            QMessageBox.about(self,"ERROR","Please ADD Company Information First")
+            self.ui.Next_btn.setEnabled(False)      
         else:
             count=0 
             # self.ui.gateslist.addItem("")
@@ -836,7 +846,7 @@ class EditEmployee(QDialog): # ----need to add function delete
         self.ui.email_line_3.clear()
 
     def getEmpPhoto(self,ID):
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         cursor.execute('SELECT Emp_Photo FROM Employees WHERE Emp_ID = ?;',[ID])
@@ -855,7 +865,7 @@ class EditEmployee(QDialog): # ----need to add function delete
             QMessageBox.about(self,"Error","Please Enter Employee id")
             
         else:
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             conn.text_factory=str
             cursor = conn.cursor()
             cursor.execute('SELECT * FROM Employees WHERE Emp_ID = ?;',[self.empid])
@@ -991,7 +1001,7 @@ class EditEmployee(QDialog): # ----need to add function delete
         elif self.Malegender==False and self.Femalegender==False:
             QMessageBox.about(self,"Missing Data","Please Enter Employee Gender")      
         else:
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             conn.text_factory=str
             cursor = conn.cursor()
             dep_query = 'SELECT Dept_ID FROM DepartmentsTable WHERE Dept_Name =\''+self.dep+"\'"
@@ -1064,7 +1074,7 @@ class AddNewUser(QDialog):
         elif password!=confirmpassword:
             print("Passwords do not match.")
         else:
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
 
             cur.execute("SELECT * FROM Users WHERE Emp_ID = ?", (EmpId, )) # is the Employee Have Account 
@@ -1188,7 +1198,7 @@ class CompanyInfo(QWidget):
         if len(depline)==0 or len(depid)==0:
             QMessageBox.about(self,'Error', 'Please fill the blanked fields ')
         elif len(depline)!=0 or len(depid)!=0:
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             cur.execute('INSERT OR IGNORE INTO DepartmentsTable (Dept_ID, Dept_Name) VALUES (?,?)', (depid,depline))
             QMessageBox.about(self,'Added', 'Dep Added '+depid)
@@ -1202,7 +1212,7 @@ class CompanyInfo(QWidget):
         if len(jobidline)==0 or len(jobdesc)==0:
             QMessageBox.about(self,'Error', 'Please fill the blanked fields ')
         elif len(jobidline)!=0 and len(jobdesc)!=0:
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             cur.execute('INSERT OR IGNORE INTO JobTittle (Emp_Job_ID, JobDesc) VALUES (?,?)', (jobidline,jobdesc))
             QMessageBox.about(self,'Added', 'Job Added '+jobidline)
@@ -1219,7 +1229,7 @@ class CompanyInfo(QWidget):
             QMessageBox.about(self,'Error', 'Please fill the blanked fields ')
         elif len(attschmeline)!=0 and len(attchme)!=0 and len(arrtime)!=0 and len(leavetime)!=0:
 
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             cur.execute('INSERT OR IGNORE INTO Attendance_Schemes_Table (AttendanceSchemes_ID, Entry_Time,Leave_Time,AttendanceDesc) VALUES (?,?,?,?)', (attschmeline,arrtime,leavetime,attchme))
             QMessageBox.about(self,'Added', 'Attendace Added '+attschmeline)
@@ -1238,7 +1248,7 @@ class CompanyInfo(QWidget):
             QMessageBox.about(self,'Error', 'Please fill the blanked fields ')
         elif len(gateid)!=0 and len(gatename)!=0 and len(gatecamip)!=0 and len(gatelockip)!=0:
 
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             cur.execute('INSERT OR IGNORE INTO GatesTable (Gate_ID,Gate_Name,Gate_Camera_IP,Gate_Door_Lock_IP) VALUES (?,?,?,?)', (gateid,gatename,gatecamip,gatelockip))
             QMessageBox.about(self,'Added', 'gate Added '+gateid)
@@ -1256,7 +1266,7 @@ class CompanyInfo(QWidget):
             QMessageBox.about(self,'Error', 'Please fill the blanked fields ')
         elif len(accessschemeid)!=0 and len(gateid)!=0 and len(jobsallowed)!=0 and len(category)!=0:
 
-            conn = sqlite3.connect("./DataBaseTable.db")
+            conn = sqlite3.connect("./SeniorDataBase.db")
             cur = conn.cursor()
             cur.execute('INSERT OR IGNORE INTO AccessScheme (AccessSchemID,GateID,JobsAllowed,Category) VALUES (?,?,?,?)', (accessschemeid,gateid,jobsallowed,category))
             QMessageBox.about(self,'Added', 'Access Added '+accessschemeid)
@@ -1350,7 +1360,7 @@ class editcompany(QWidget):
         if len(self.searchid)==0:
             QMessageBox.about(self,'Error','Please fill the search')
         
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         # cursor.execute('SELECT rowid FROM DepartmentsTable WHERE Dept_ID = ?)', (searchid, ))
@@ -1376,7 +1386,7 @@ class editcompany(QWidget):
 
      def editdepid(self):
         depline=self.ui.dep_line.text()
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         cursor.execute('UPDATE OR IGNORE DepartmentsTable set Dept_Name = ? WHERE Dept_ID = ?',(depline,self.searchid))
@@ -1389,7 +1399,7 @@ class editcompany(QWidget):
          if len(self.searchjob)==0:
              QMessageBox.about(self,'Error','Please fill the search')
 
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
         # cursor.execute('SELECT rowid FROM DepartmentsTable WHERE Dept_ID = ?)', (searchid, ))
@@ -1410,7 +1420,7 @@ class editcompany(QWidget):
          
      def editjob(self):
         jobline=self.ui.job_line.text()
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         cursor.execute('UPDATE OR IGNORE JobTittle set JobDesc = ? WHERE Emp_Job_ID = ?',(jobline,self.searchjob))
@@ -1422,7 +1432,7 @@ class editcompany(QWidget):
          self.searchatt=self.ui.lineEdit_4.text()
          if len(self.searchatt)==0:
              QMessageBox.about(self,'Error','Please fill the search')
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('SELECT * FROM Attendance_Schemes_Table WHERE AttendanceSchemes_ID = ?',self.searchatt)
@@ -1450,7 +1460,7 @@ class editcompany(QWidget):
          attendancescheme=self.ui.att_line.text()
          arrivingtime=self.ui.arrive_line.text()
          leavingtime=self.ui.leave_line.text()
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('UPDATE OR IGNORE Attendance_Schemes_Table set Entry_Time = ? , Leave_Time = ? , AttendanceDesc = ? WHERE AttendanceSchemes_ID = ?',(arrivingtime,leavingtime,attendancescheme,self.searchatt))
@@ -1462,7 +1472,7 @@ class editcompany(QWidget):
          self.searchgates=self.ui.lineEdit_5.text()
          if len(self.searchgates)==0:
              QMessageBox.about(self,'Error','Please fill the search')
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('SELECT * FROM GatesTable WHERE Gate_ID = ?',self.searchgates)
@@ -1489,7 +1499,7 @@ class editcompany(QWidget):
          gatename=self.ui.gate_line.text()
          camip=self.ui.camip_line.text()
          gatelock=self.ui.gatelock_line.text()
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('UPDATE OR IGNORE GatesTable set Gate_Name = ? , Gate_Camera_IP = ? , Gate_Door_Lock_IP = ? WHERE Gate_ID = ?',(gatename,camip,gatelock,self.searchgates))
@@ -1501,7 +1511,7 @@ class editcompany(QWidget):
          self.searchaccess=self.ui.searchid_1.text()
          if len(self.searchaccess)==0:
              QMessageBox.about(self,'Error','Please fill the search')
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('SELECT * FROM AccessScheme WHERE AccessSchemID = ?',self.searchaccess)
@@ -1528,7 +1538,7 @@ class editcompany(QWidget):
          gateid=self.ui.gateid_line_3.text()
          jobsallowed=self.ui.jobsallowed_line.text()
          categoryy=self.ui.category_line.text()
-         conn = sqlite3.connect("./DataBaseTable.db")
+         conn = sqlite3.connect("./SeniorDataBase.db")
          conn.text_factory=str
          cursor = conn.cursor()
          cursor.execute('UPDATE OR IGNORE AccessScheme set GateID = ? , JobsAllowed = ? , Category = ? WHERE AccessSchemID = ?',(gateid,jobsallowed,categoryy,self.searchaccess))
@@ -1588,6 +1598,7 @@ class viewreportmenu(QWidget):
             self.ui.attendanceviewreport_btn.clicked.connect(self.gotoattendance)
             self.ui.accessviewreport_btn.clicked.connect(self.gotoaccess)
             self.ui.backreport_btn.clicked.connect(self.goback)
+            self.ui.customreport_btn.setVisible(False)
            # self.ui.pushButton_2.clicked.connect(self.gotoaccess)
             # self.ui.customreport_btn.clicked.connect(self.gotochoice)
             #self.ui.attendanceviewreport_btn.clicked.connect(self.searchatt) 
@@ -1673,7 +1684,7 @@ class viewattendance(QWidget):
         #widget.setWindowTitle(" View Report Menu")  
 
     def saveexcelatt(self):
-        conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
+        conn = sqlite3.connect('./SeniorDataBase.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
        # db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet", conn)
        # db_df.to_csv('database.csv', index=False)
@@ -1709,7 +1720,7 @@ class viewaccess(QWidget):
         widget.setWindowTitle(" View Report Menu")  
 
     def saveexcelacc(self):
-        conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
+        conn = sqlite3.connect('./SeniorDataBase.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
        # db_df = pd.read_sql_query("SELECT * FROM EmployeeAccess", conn)
         #db_df.to_csv('database.csv', index=False)
@@ -1733,7 +1744,7 @@ class searchattreport(QWidget):
         self.ui.pushButton.clicked.connect(self.exporttoexcel)
 
     def search(self):
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         self.search=self.ui.lineEdit_attrep.text()
@@ -1781,7 +1792,7 @@ class searchaccreport(QWidget):
 
         self.ui.pushButton.clicked.connect(self.exporttoexcel)
     def search(self):
-        conn = sqlite3.connect("./DataBaseTable.db")
+        conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         self.search=self.ui.lineEdit_accrep.text()
@@ -1809,9 +1820,9 @@ class searchaccreport(QWidget):
 
 
     def exporttoexcel(self):
-      #  conn = sqlite3.connect("./DataBaseTable.db")
+      #  conn = sqlite3.connect("./SeniorDataBase.db")
        # conn.text_factory=str
-        conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
+        conn = sqlite3.connect('./SeniorDataBase.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
         #db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet WHERE Emp_ID=?",(self.ui.lineEdit_accrep.text()), conn)
         #db_df.to_csv('database.csv', index=False)
