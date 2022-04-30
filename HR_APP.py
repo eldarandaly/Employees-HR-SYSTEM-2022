@@ -1598,6 +1598,7 @@ class viewreportmenu(QWidget):
             self.ui.attendanceviewreport_btn.clicked.connect(self.gotoattendance)
             self.ui.accessviewreport_btn.clicked.connect(self.gotoaccess)
             self.ui.backreport_btn.clicked.connect(self.goback)
+            self.ui.customreport_btn.setVisible(False)
            # self.ui.pushButton_2.clicked.connect(self.gotoaccess)
             # self.ui.customreport_btn.clicked.connect(self.gotochoice)
             #self.ui.attendanceviewreport_btn.clicked.connect(self.searchatt) 
@@ -1659,6 +1660,10 @@ class viewattendance(QWidget):
         self.ui.searchattrep.setVisible(False)
         self.ui.label_2.setVisible(False)
         self.ui.pushButton_2.clicked.connect(self.gotoattendance)
+        self.ui.pushButton.clicked.connect(self.saveexcelatt)
+
+        #self.ui.pushButton.clicked.connect(exporttoexcel)
+
 
     def gotoattendance(self):
         gotosearchatt = searchattreport()
@@ -1669,7 +1674,7 @@ class viewattendance(QWidget):
 
 
     def goback(self):
-        Newmenu = EmployeeMenu(self)
+        Newmenu = viewreportmenu(self)
         widget.addWidget(Newmenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
         widget.setWindowTitle(" View Report Menu")  
@@ -1677,14 +1682,17 @@ class viewattendance(QWidget):
         #widget.addWidget(Newviewreport)
         #widget.setCurrentIndex(widget.currentIndex() + 1)
         #widget.setWindowTitle(" View Report Menu")  
+
     def saveexcelatt(self):
         conn = sqlite3.connect('./SeniorDataBase.db', isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
-        db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet", conn)
-        db_df.to_csv('database.csv', index=False)
+       # db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet", conn)
+       # db_df.to_csv('database.csv', index=False)
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
 
         QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
-        
+        conn.close()
+
 class viewaccess(QWidget):
     def __init__(self):
         QWidget.__init__(self)
@@ -1706,7 +1714,7 @@ class viewaccess(QWidget):
         widget.setWindowTitle(" View Report Menu")
 
     def goback(self):
-        Newviewreport = viewreportmenu()
+        Newviewreport = viewreportmenu(self)
         widget.addWidget(Newviewreport)
         widget.setCurrentIndex(widget.currentIndex() + 1)
         widget.setWindowTitle(" View Report Menu")  
@@ -1733,6 +1741,8 @@ class searchattreport(QWidget):
         self.ui.searchattrep.clicked.connect(self.search)
         self.ui.backattrep_btn.clicked.connect(self.goback)
         #self.ui.pushButton.setVisible(False)
+        self.ui.pushButton.clicked.connect(self.exporttoexcel)
+
     def search(self):
         conn = sqlite3.connect("./SeniorDataBase.db")
         conn.text_factory=str
@@ -1740,6 +1750,10 @@ class searchattreport(QWidget):
         self.search=self.ui.lineEdit_attrep.text()
         cursor.execute('SELECT * FROM AttendanceSheet WHERE Emp_ID=?', (self.search,))
         result=cursor.fetchall()
+        pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
+        pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
+
+
         self.ui.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.tableWidget.insertRow(row_number)
@@ -1753,6 +1767,18 @@ class searchattreport(QWidget):
         #Newviewreport = viewreportmenu()
         #widget.addWidget(Newviewreport)
         #widget.setCurrentIndex(widget.currentIndex() + 1)
+    def exporttoexcel(self):
+      #  conn = sqlite3.connect("./DataBaseTable.db")
+       # conn.text_factory=str
+        conn = sqlite3.connect('./DataBaseTable.db', isolation_level=None,
+                       detect_types=sqlite3.PARSE_COLNAMES)
+        #db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet WHERE Emp_ID=?",(self.ui.lineEdit_accrep.text()), conn)
+        #db_df.to_csv('database.csv', index=False)
+
+        
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
+    
         
 class searchaccreport(QWidget):
     def __init__(self):
@@ -1772,8 +1798,8 @@ class searchaccreport(QWidget):
         self.search=self.ui.lineEdit_accrep.text()
         cursor.execute('SELECT * FROM EmployeeAccess WHERE Emp_ID=?', (self.search,))
         result=cursor.fetchall()
-        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
-        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
 
 
 
@@ -1782,6 +1808,7 @@ class searchaccreport(QWidget):
             self.ui.tableWidget.insertRow(row_number)
             for colum_number, data in enumerate(row_data):
                 self.ui.tableWidget.setItem(row_number, colum_number, QTableWidgetItem(str(data)))
+                
     def goback(self):
         Newmenu = viewreportmenu(self)
         widget.addWidget(Newmenu)
@@ -1790,6 +1817,8 @@ class searchaccreport(QWidget):
      #   Newviewreport = viewreportmenu()
       #  widget.addWidget(Newviewreport)
        # widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
     def exporttoexcel(self):
       #  conn = sqlite3.connect("./SeniorDataBase.db")
        # conn.text_factory=str
@@ -1799,7 +1828,7 @@ class searchaccreport(QWidget):
         #db_df.to_csv('database.csv', index=False)
 
         
-        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
         QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
 
 
