@@ -704,7 +704,7 @@ class NewEmployee(QDialog):
                 if cv2.waitKey(1)==13 or count==30:
                     QMessageBox.about(self,"INFO","Employee with ID : "+str(self.capture_Emp_ID)+"Dataset has Been Taken")
                     self.FirstUi.Error.setText("Procces Done")
-                    self.FirstUi.stackedWidget.setCurrentWidget(self.FirstUi.BasicInfoPage)
+                    # self.FirstUi.stackedWidget.setCurrentWidget(self.FirstUi.BasicInfoPage)
                     self.FirstUi.save_btn.setVisible(True)
                     self.FirstUi.Start_btn.setVisible(False)
                     self.FirstUi.New_btn.setVisible(True)
