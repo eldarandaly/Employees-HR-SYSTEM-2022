@@ -1019,7 +1019,7 @@ class Ui_newemp1(object):
         self.gateslist.setObjectName(u"gateslist")
         self.gateslist.setGeometry(QRect(30, 60, 256, 491))
         self.gateslist.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.viewgatelist = QListView(self.EmployeeDataPage)
+        self.viewgatelist = QListWidget(self.EmployeeDataPage)
         self.viewgatelist.setObjectName(u"viewgatelist")
         self.viewgatelist.setGeometry(QRect(1070, 190, 256, 501))
         self.viewgatelist.setSelectionMode(QAbstractItemView.NoSelection)

@@ -1498,7 +1498,7 @@ QPushButton:disabled{
         </property>
        </widget>
       </widget>
-      <widget class="QListView" name="viewgatelist">
+      <widget class="QListWidget" name="viewgatelist">
        <property name="geometry">
         <rect>
          <x>1070</x>

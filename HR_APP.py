@@ -834,7 +834,7 @@ class EditEmployee(QDialog): # ----need to add function delete
             # self.ui.gateslist.addItem("")
             for i in range (gateslen):
                 self.ui.gateslist.addItem(Gates1[count])
-                self.getLISTit.append(Gates[count])
+                # self.getLIST.append(Gates[count])
                 count+=1
    
     def handel_Lines(self):
@@ -893,12 +893,12 @@ class EditEmployee(QDialog): # ----need to add function delete
                     gate_ID=r[1]
                     glist.append(gate_ID)
                 
-                
-                #for i in self.getLISTit:
-                    # cursor.execute('SELECT Gate_Name FROM GatesTable WHERE Gate_ID = ?;',[i])
-                    # Gresult=cursor.fetchone()
-                    # gnames.append(str(Gresult[0]))
-                   # print(i)
+                empGateNames=[]
+                for i in glist:
+                    cursor.execute('SELECT Gate_Name FROM GatesTable WHERE Gate_ID = ?;',[i])
+                    Gresult=cursor.fetchone()
+                    empGateNames.append(str(Gresult[0]))
+                    print(i)
 
                 dep_query = 'SELECT Dept_Name FROM DepartmentsTable WHERE Dept_ID =\''+str(empDeptID)+"\'"
                 cursor.execute(dep_query)
@@ -939,7 +939,16 @@ class EditEmployee(QDialog): # ----need to add function delete
                 self.ui.job_drop_3.setCurrentText(Job_query_result_str)
                 self.ui.att_drop_3.setCurrentText(attendSch_query_result_str)
                 self.ui.acc_drop_3.setCurrentText(AccessCat_query_result_str)
-                self.ui.viewgatelist.show(glist)
+                self.ui.viewgatelist.show()
+                # self.ui.viewgatelist.setModel()
+                count=0 
+                # self.ui.gateslist.addItem("")
+                size=len(empGateNames)
+                for i in range (size):
+                    self.ui.viewgatelist.addItem(empGateNames[count])
+                    # self.getLIST.append(Gates[count])
+                    count+=1
+                # self.ui.viewgatelist.
 
                 if gender=='M':
                     self.ui.MaleRadio_3.setChecked(True)

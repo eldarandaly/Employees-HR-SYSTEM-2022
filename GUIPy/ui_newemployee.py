@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'newemployeejlohDQ.ui'
+## Form generated from reading UI file 'newemployeeXaeGRo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 
 class Ui_newemp1(object):
@@ -1019,7 +1019,7 @@ class Ui_newemp1(object):
         self.gateslist.setObjectName(u"gateslist")
         self.gateslist.setGeometry(QRect(30, 60, 256, 491))
         self.gateslist.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.viewgatelist = QListView(self.EmployeeDataPage)
+        self.viewgatelist = QListWidget(self.EmployeeDataPage)
         self.viewgatelist.setObjectName(u"viewgatelist")
         self.viewgatelist.setGeometry(QRect(1070, 190, 256, 501))
         self.viewgatelist.setSelectionMode(QAbstractItemView.NoSelection)
