@@ -31,7 +31,7 @@ class Ui_newemp1(object):
         self.BasicInfoPage.setObjectName(u"BasicInfoPage")
         self.search_btn = QPushButton(self.BasicInfoPage)
         self.search_btn.setObjectName(u"search_btn")
-        self.search_btn.setGeometry(QRect(817, 11, 61, 57))
+        self.search_btn.setGeometry(QRect(800, 16, 41, 51))
         self.search_btn.setAutoFillBackground(False)
         self.search_btn.setStyleSheet(u"QPushButton{\n"
 "	font: 75 11pt \"MS Shell Dlg 2\";\n"
@@ -1014,15 +1014,26 @@ class Ui_newemp1(object):
         self.splitter_2.addWidget(self.Next2Cap)
         self.gates_group = QGroupBox(self.EmployeeDataPage)
         self.gates_group.setObjectName(u"gates_group")
-        self.gates_group.setGeometry(QRect(750, 140, 311, 591))
+        self.gates_group.setGeometry(QRect(690, 170, 282, 241))
+        self.formLayout_5 = QFormLayout(self.gates_group)
+        self.formLayout_5.setObjectName(u"formLayout_5")
         self.gateslist = QListWidget(self.gates_group)
         self.gateslist.setObjectName(u"gateslist")
-        self.gateslist.setGeometry(QRect(30, 60, 256, 491))
         self.gateslist.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.viewgatelist = QListWidget(self.EmployeeDataPage)
+
+        self.formLayout_5.setWidget(0, QFormLayout.LabelRole, self.gateslist)
+
+        self.groupBox_11 = QGroupBox(self.EmployeeDataPage)
+        self.groupBox_11.setObjectName(u"groupBox_11")
+        self.groupBox_11.setGeometry(QRect(690, 450, 282, 241))
+        self.formLayout_4 = QFormLayout(self.groupBox_11)
+        self.formLayout_4.setObjectName(u"formLayout_4")
+        self.viewgatelist = QListWidget(self.groupBox_11)
         self.viewgatelist.setObjectName(u"viewgatelist")
-        self.viewgatelist.setGeometry(QRect(1070, 190, 256, 501))
         self.viewgatelist.setSelectionMode(QAbstractItemView.NoSelection)
+
+        self.formLayout_4.setWidget(0, QFormLayout.LabelRole, self.viewgatelist)
+
         self.stackedWidget.addWidget(self.EmployeeDataPage)
         self.CapturePage = QWidget()
         self.CapturePage.setObjectName(u"CapturePage")
@@ -1270,7 +1281,7 @@ class Ui_newemp1(object):
 
         self.retranslateUi(newemp1)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(newemp1)
@@ -1322,7 +1333,8 @@ class Ui_newemp1(object):
         self.Back2basic.setText(QCoreApplication.translate("newemp1", u"Back", None))
         self.update_btn.setText(QCoreApplication.translate("newemp1", u"Update", None))
         self.Next2Cap.setText(QCoreApplication.translate("newemp1", u"Next", None))
-        self.gates_group.setTitle(QCoreApplication.translate("newemp1", u"Gates", None))
+        self.gates_group.setTitle(QCoreApplication.translate("newemp1", u"Available Gates", None))
+        self.groupBox_11.setTitle(QCoreApplication.translate("newemp1", u"Employee Gates", None))
         self.label_25.setText("")
         self.label_3.setText(QCoreApplication.translate("newemp1", u"Collectin Employe Face For Model", None))
         self.Error.setText("")
