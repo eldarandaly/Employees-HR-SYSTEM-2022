@@ -968,8 +968,8 @@ QPushButton:disabled{
       <widget class="QGroupBox" name="groupBox_2">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>610</y>
+         <x>200</x>
+         <y>600</y>
          <width>441</width>
          <height>131</height>
         </rect>
@@ -1062,7 +1062,7 @@ font: 75 20pt &quot;Bahnschrift&quot;;</string>
       <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
-         <x>430</x>
+         <x>200</x>
          <y>120</y>
          <width>441</width>
          <height>141</height>
@@ -1140,8 +1140,8 @@ QComboBox QAbstractItemView {
       <widget class="QGroupBox" name="groupBox_9">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>290</y>
+         <x>200</x>
+         <y>280</y>
          <width>441</width>
          <height>131</height>
         </rect>
@@ -1220,8 +1220,8 @@ QComboBox QAbstractItemView {
       <widget class="QGroupBox" name="groupBox_10">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>450</y>
+         <x>200</x>
+         <y>440</y>
          <width>441</width>
          <height>131</height>
         </rect>
@@ -1475,7 +1475,7 @@ QPushButton:disabled{
       <widget class="QGroupBox" name="gates_group">
        <property name="geometry">
         <rect>
-         <x>900</x>
+         <x>750</x>
          <y>140</y>
          <width>311</width>
          <height>591</height>
@@ -1487,7 +1487,7 @@ QPushButton:disabled{
        <widget class="QListWidget" name="gateslist">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>30</x>
           <y>60</y>
           <width>256</width>
           <height>491</height>
@@ -1497,6 +1497,19 @@ QPushButton:disabled{
          <enum>QAbstractItemView::MultiSelection</enum>
         </property>
        </widget>
+      </widget>
+      <widget class="QListView" name="viewgatelist">
+       <property name="geometry">
+        <rect>
+         <x>1070</x>
+         <y>190</y>
+         <width>256</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::NoSelection</enum>
+       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="CapturePage">

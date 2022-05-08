@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'newemployeeIRPBPf.ui'
+## Form generated from reading UI file 'newemployeejlohDQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 
 class Ui_newemp1(object):
@@ -637,7 +637,7 @@ class Ui_newemp1(object):
         self.EmployeeDataPage.setObjectName(u"EmployeeDataPage")
         self.groupBox_2 = QGroupBox(self.EmployeeDataPage)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(430, 610, 441, 131))
+        self.groupBox_2.setGeometry(QRect(200, 600, 441, 131))
         self.formLayout_3 = QFormLayout(self.groupBox_2)
         self.formLayout_3.setObjectName(u"formLayout_3")
         self.label_36 = QLabel(self.groupBox_2)
@@ -697,7 +697,7 @@ class Ui_newemp1(object):
 "font: 75 20pt \"Bahnschrift\";")
         self.groupBox = QGroupBox(self.EmployeeDataPage)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setGeometry(QRect(430, 120, 441, 141))
+        self.groupBox.setGeometry(QRect(200, 120, 441, 141))
         self.formLayout = QFormLayout(self.groupBox)
         self.formLayout.setObjectName(u"formLayout")
         self.job_drop_3 = QComboBox(self.groupBox)
@@ -748,7 +748,7 @@ class Ui_newemp1(object):
 
         self.groupBox_9 = QGroupBox(self.EmployeeDataPage)
         self.groupBox_9.setObjectName(u"groupBox_9")
-        self.groupBox_9.setGeometry(QRect(430, 290, 441, 131))
+        self.groupBox_9.setGeometry(QRect(200, 280, 441, 131))
         self.formLayout_2 = QFormLayout(self.groupBox_9)
         self.formLayout_2.setObjectName(u"formLayout_2")
         self.label_38 = QLabel(self.groupBox_9)
@@ -798,7 +798,7 @@ class Ui_newemp1(object):
 
         self.groupBox_10 = QGroupBox(self.EmployeeDataPage)
         self.groupBox_10.setObjectName(u"groupBox_10")
-        self.groupBox_10.setGeometry(QRect(430, 450, 441, 131))
+        self.groupBox_10.setGeometry(QRect(200, 440, 441, 131))
         self.gridLayout_3 = QGridLayout(self.groupBox_10)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.att_drop_3 = QComboBox(self.groupBox_10)
@@ -1014,11 +1014,15 @@ class Ui_newemp1(object):
         self.splitter_2.addWidget(self.Next2Cap)
         self.gates_group = QGroupBox(self.EmployeeDataPage)
         self.gates_group.setObjectName(u"gates_group")
-        self.gates_group.setGeometry(QRect(900, 140, 311, 591))
+        self.gates_group.setGeometry(QRect(750, 140, 311, 591))
         self.gateslist = QListWidget(self.gates_group)
         self.gateslist.setObjectName(u"gateslist")
-        self.gateslist.setGeometry(QRect(20, 60, 256, 491))
+        self.gateslist.setGeometry(QRect(30, 60, 256, 491))
         self.gateslist.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.viewgatelist = QListView(self.EmployeeDataPage)
+        self.viewgatelist.setObjectName(u"viewgatelist")
+        self.viewgatelist.setGeometry(QRect(1070, 190, 256, 501))
+        self.viewgatelist.setSelectionMode(QAbstractItemView.NoSelection)
         self.stackedWidget.addWidget(self.EmployeeDataPage)
         self.CapturePage = QWidget()
         self.CapturePage.setObjectName(u"CapturePage")

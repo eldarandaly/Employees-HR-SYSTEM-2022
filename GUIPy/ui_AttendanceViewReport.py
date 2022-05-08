@@ -15,7 +15,7 @@ import sqlite3
 
 class Ui_AttendanceView(object):
     def loadData(self):
-        conn=sqlite3.connect('./SeniorDataBase.db')
+        conn=sqlite3.connect('./NewSeniorDataBase.db')
         query='SELECT * FROM AttendanceSheet'
         result=conn.execute(query)
         self.tableWidget.setRowCount(0)

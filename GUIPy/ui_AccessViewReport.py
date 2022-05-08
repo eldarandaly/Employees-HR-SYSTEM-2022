@@ -17,7 +17,7 @@ import sqlite3
 
 class Ui_AccessView(object):
     def loadData(self):
-        conn=sqlite3.connect('./SeniorDataBase.db')
+        conn=sqlite3.connect('./NewSeniorDataBase.db')
         query='SELECT * FROM EmployeeAccess'
         result=conn.execute(query)
         self.tableWidget.setRowCount(0)
