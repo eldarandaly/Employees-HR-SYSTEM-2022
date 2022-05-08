@@ -54,7 +54,7 @@ background:rgb(250, 249, 246)
 	color: rgb(0,0,0);
 	padding: 2px;
 	background-color: rgb(186,186,186);
-    background-image: url(&quot;D:/ahmos/Desktop/senior proj 222/APP/icon1.jpg&quot;);
+  
 }
 QPushButton:hover{
 	border-style: solid;
