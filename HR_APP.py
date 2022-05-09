@@ -680,6 +680,8 @@ class NewEmployee(QDialog):
                     if not os.path.exists(DatasetFolder):
                         os.makedirs(DatasetFolder)
                     imgpath=DatasetFolder+"/img"+str(count)+".jpg"
+
+               # Taking the face from the video and saving it in the folder.
                 if len(location) == 1 :
                     self.FirstUi.Error.setText("Please Rotate Your Head in all Directions")
                     for face in location:
@@ -697,10 +699,12 @@ class NewEmployee(QDialog):
                         cv2.putText(cropface,str(count),(50,50),cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,(255,255,0),3)
                         ConvertToQtFormat = QImage(cropface.data, cropface.shape[1], cropface.shape[0], QImage.Format_RGB888)
                         self.ImageUpdate.emit(ConvertToQtFormat)
-                        # cv2.imshow("Getting Employee face",face)
+                        # cv2.imshow("Getting Employee face",face
+                        # )
                 elif len(location)> 1:
                     # QMessageBox.about(self,"Alerat","Can't Detecte Face or there are more than 2 faces ")
                     self.FirstUi.Error.setText("There Are More Than One Face")
+                    
                 if cv2.waitKey(1)==13 or count==30:
                     QMessageBox.about(self,"INFO","Employee with ID : "+str(self.capture_Emp_ID)+"Dataset has Been Taken")
                     self.FirstUi.Error.setText("Procces Done")
@@ -838,6 +842,9 @@ class EditEmployee(QDialog): # ----need to add function delete
                 count+=1
    
     def handel_Lines(self):
+        """
+        It clears all the text fields in the GUI.
+        """
         self.ui.first_line_3.clear()
         self.ui.middle_line_3.clear()
         self.ui.last_line_3.clear()
@@ -846,17 +853,20 @@ class EditEmployee(QDialog): # ----need to add function delete
         self.ui.email_line_3.clear()
 
     def getEmpPhoto(self,ID):
+# Connecting to the database.
         conn = sqlite3.connect("./NewSeniorDataBase.db")
         conn.text_factory=str
         cursor = conn.cursor()
         cursor.execute('SELECT Emp_Photo FROM Employees WHERE Emp_ID = ?;',[ID])
         blob=cursor.fetchone()
         pix=QPixmap()
+        # Loading the image from the blob.
         if pix.loadFromData(blob[0]):
             self.ui.photoview_3.setPixmap(pix)
             self.ui.photoview_3.setScaledContents(True)
 
 
+     # Searching for an employee with a given ID.
     def SearchEmpWithID(self):
         
         self.empid=self.ui.searchbar.text()
@@ -895,8 +905,10 @@ class EditEmployee(QDialog): # ----need to add function delete
                 
                 empGateNames=[]
                 for i in glist:
+# Selecting the gate name from the GatesTable where the gate ID is equal to the value of i.
                     cursor.execute('SELECT Gate_Name FROM GatesTable WHERE Gate_ID = ?;',[i])
                     Gresult=cursor.fetchone()
+# Taking the employee name and gate name from the database and storing it in a list.
                     empGateNames.append(str(Gresult[0]))
                     print(i)
 
@@ -928,6 +940,7 @@ class EditEmployee(QDialog): # ----need to add function delete
 
 
 
+# The code is setting the text of the line edits to the values of the variables.
                 self.ui.first_line_3.setText(firstname)
                 self.ui.middle_line_3.setText(middelname)
                 self.ui.last_line_3.setText(lastname)
@@ -1603,6 +1616,7 @@ class TrainScreen(QWidget):
         self.modeldir = './model/trained_facenet_model.pb'
         self.classifier_filename = './class/test.pkl'
 
+# Training the model.
         obj=training(self.datadir,self.modeldir,self.classifier_filename)
         self.LoadBar(True)
         get_file=obj.main_train()
@@ -1656,6 +1670,10 @@ class viewreportmenu(QWidget):
             widget.setWindowTitle("View Access Report")
 
         def goback(self):
+            """
+            It creates a new instance of the EmployeeMenu class, adds it to the widget stack, and then sets the
+            current index to the new instance.
+            """
             Newmenu = EmployeeMenu(self.userType)
             widget.addWidget(Newmenu)
             widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -1677,13 +1695,14 @@ class viewattendance(QWidget):
         self.ui.setupUi(self)
         self.ui.loadData()
         widget.setGeometry(100,100,783,560)
+
         self.ui.backattrep_btn.clicked.connect(self.goback)
+        self.ui.pushButton_2.clicked.connect(self.gotoattendance)
+        self.ui.pushButton.clicked.connect(self.saveexcelatt)
+        
         self.ui.lineEdit_attrep.setVisible(False)
         self.ui.searchattrep.setVisible(False)
         self.ui.label_2.setVisible(False)
-        self.ui.pushButton_2.clicked.connect(self.gotoattendance)
-        self.ui.pushButton.clicked.connect(self.saveexcelatt)
-
         #self.ui.pushButton.clicked.connect(exporttoexcel)
 
 
