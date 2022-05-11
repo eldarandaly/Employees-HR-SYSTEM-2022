@@ -12,7 +12,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sqlite3
-DATABASEPATH="//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
+DATABASEPATH='NewSeniorDataBase.db'#"//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
 
 class Ui_AttendanceView(object):
     def loadData(self):

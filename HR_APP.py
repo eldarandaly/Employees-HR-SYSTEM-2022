@@ -42,8 +42,8 @@ there is two way to load GUI
 
 '''
 
-DATABASEPATH="//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
-os.listdir("//raspberrypi/Main/home/pi/ServerDB")
+DATABASEPATH='NewSeniorDataBase.db'#"//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
+# os.listdir("//raspberrypi/Main/home/pi/ServerDB")
 from GUIPy.ui_companyinfo import Ui_Form
 # IMPORT FUNCTIONS
 
@@ -1070,7 +1070,7 @@ class EditEmployee(QDialog): # ----need to add function delete
             elif dep_query_result or Job_query_result or attendSch_query_result or AccessCat_query_result is not None:
                 cursor.execute('UPDATE Employees SET Emp_First_Name=?,Emp_Middle_Name=?,Emp_Last_Name=? ,Emp_Address=?,Emp_email=?,Emp_Dpet_ID=?,Emp_Job_ID=?,Emp_Attendace_SchemeID=?,Emp_Access_ID=?,Emp_Gender=? WHERE Emp_ID = ?',(self.first,self.middleLine,self.last,self.address,self.email,dep_query_result[0],Job_query_result[0],attendSch_query_result[0],AccessCat_query_result[0],self.Putgender,self.search))
                 Arr=[GateID_query_result[0],AccessCat_query_result[0],self.accessCat,self.search]
-                cursor.execute("UPDATE EmployeeAccess SET Gate_ID=?,AcessSchemeID=?,Cat=?  WHERE Emp_ID=?;",Arr)
+                cursor.execute("REPLACE EmployeeAccess SET Gate_ID=?,AcessSchemeID=?,Cat=?  WHERE Emp_ID=?;",Arr)
                 QMessageBox.about(self,"Employee Saved","Employee of ID "+ str(self.search) + " Is Updated")
                 self.handel_Lines()
         
