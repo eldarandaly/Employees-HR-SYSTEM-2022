@@ -43,7 +43,7 @@ there is two way to load GUI
 '''
 
 DATABASEPATH="//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
-
+os.listdir("//raspberrypi/Main/home/pi/ServerDB")
 from GUIPy.ui_companyinfo import Ui_Form
 # IMPORT FUNCTIONS
 
@@ -1788,18 +1788,18 @@ class searchattreport(QWidget):
         conn = sqlite3.connect(DATABASEPATH)
         conn.text_factory=str
         cursor = conn.cursor()
-        self.search=self.ui.lineEdit_attrep.text()
-        cursor.execute('SELECT * FROM AttendanceSheet WHERE Emp_ID=?', (self.search,))
+        self.Search=self.ui.lineEdit_attrep.text()
+        cursor.execute('SELECT * FROM AttendanceSheet WHERE Emp_ID=?', (self.Search,))
         result=cursor.fetchall()
         pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
-        pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
-
-
+        # pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
         self.ui.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.tableWidget.insertRow(row_number)
             for colum_number, data in enumerate(row_data):
                 self.ui.tableWidget.setItem(row_number, colum_number, QTableWidgetItem(str(data)))
+
+
     def goback(self):
         Newmenu = viewreportmenu(self)
         widget.addWidget(Newmenu)
@@ -1808,16 +1808,21 @@ class searchattreport(QWidget):
         #Newviewreport = viewreportmenu()
         #widget.addWidget(Newviewreport)
         #widget.setCurrentIndex(widget.currentIndex() + 1)
+
     def exporttoexcel(self):
       #  conn = sqlite3.connect("./DataBaseTable.db")
        # conn.text_factory=str
         conn = sqlite3.connect(DATABASEPATH, isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
+        q='SELECT * FROM AttendanceSheet WHERE Emp_ID='+str(self.Search)
+        
+
+        pd.read_sql_query(q, conn).to_excel('NAME.ID.xlsx')   
         #db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet WHERE Emp_ID=?",(self.ui.lineEdit_accrep.text()), conn)
         #db_df.to_csv('database.csv', index=False)
 
         
-        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
+        # pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AttendanceSheet.xlsx')
         QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
     
         
@@ -1827,12 +1832,12 @@ class searchaccreport(QWidget):
         self.ui = Ui_AccessView()
         self.ui.setupUi(self)
         widget.setGeometry(100,100,824,565)
-        self.ui.searchaccrep.clicked.connect(self.search)
+        self.ui.searchaccrep.clicked.connect(self.Search)
         self.ui.backaccrep_btn.clicked.connect(self.goback)
         # self.ui.pushButton.setVisible(False)
 
         self.ui.pushButton.clicked.connect(self.exporttoexcel)
-    def search(self):
+    def Search(self):
         conn = sqlite3.connect(DATABASEPATH)
         conn.text_factory=str
         cursor = conn.cursor()
@@ -1840,7 +1845,7 @@ class searchaccreport(QWidget):
         cursor.execute('SELECT * FROM EmployeeAccess WHERE Emp_ID=?', (self.search,))
         result=cursor.fetchall()
         pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
-        pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
+        # pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
 
 
 
@@ -1865,10 +1870,13 @@ class searchaccreport(QWidget):
        # conn.text_factory=str
         conn = sqlite3.connect(DATABASEPATH, isolation_level=None,
                        detect_types=sqlite3.PARSE_COLNAMES)
+        q='SELECT * FROM EmployeeAccess WHERE Emp_ID='+str(self.search)
+
+
+        pd.read_sql_query(q, conn).to_excel('AcessForName.xlsx')                
         #db_df = pd.read_sql_query("SELECT * FROM AttendanceSheet WHERE Emp_ID=?",(self.ui.lineEdit_accrep.text()), conn)
         #db_df.to_csv('database.csv', index=False)
 
-        
         pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
         QMessageBox.about(self,'Notification', 'File saved to excel successfully ')
 
