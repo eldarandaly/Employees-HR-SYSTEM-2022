@@ -12,10 +12,11 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sqlite3
+DATABASEPATH="//raspberrypi/Main/home/pi/ServerDB/NewSeniorDataBase.db"
 
 class Ui_AttendanceView(object):
     def loadData(self):
-        conn=sqlite3.connect('./NewSeniorDataBase.db')
+        conn=sqlite3.connect(DATABASEPATH)
         query='SELECT * FROM AttendanceSheet'
         result=conn.execute(query)
         self.tableWidget.setRowCount(0)
