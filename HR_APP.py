@@ -1759,7 +1759,8 @@ class viewaccess(QWidget):
         Newviewreport = viewreportmenu(self)
         widget.addWidget(Newviewreport)
         widget.setCurrentIndex(widget.currentIndex() + 1)
-        widget.setWindowTitle(" View Report Menu")  
+        widget.setWindowTitle(" View Report Menu") 
+         
 
     def saveexcelacc(self):
         conn = sqlite3.connect(DATABASEPATH, isolation_level=None,
@@ -1790,7 +1791,17 @@ class searchattreport(QWidget):
         conn.text_factory=str
         cursor = conn.cursor()
         self.Search=self.ui.lineEdit_attrep.text()
+
+        
         cursor.execute('SELECT * FROM AttendanceSheet WHERE Emp_ID=?', (self.Search,))
+        return_Emp_ID = cursor.fetchone()
+        
+        if(not return_Emp_ID):
+            cursor.execute('SELECT * FROM AttendanceSheet WHERE EnteringDate=?', (self.Search,))
+        else:
+            cursor.execute('SELECT * FROM AttendanceSheet WHERE Emp_ID=?', (self.Search,))
+
+
         result=cursor.fetchall()
         pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
         # pd.read_sql_query("SELECT * FROM AttendanceSheet", conn).to_excel('AttendanceSheet.xlsx')
@@ -1843,7 +1854,16 @@ class searchaccreport(QWidget):
         conn.text_factory=str
         cursor = conn.cursor()
         self.search=self.ui.lineEdit_accrep.text()
+        
         cursor.execute('SELECT * FROM EmployeeAccess WHERE Emp_ID=?', (self.search,))
+        return_Emp_ID = cursor.fetchone()
+        
+        if(not return_Emp_ID):
+            cursor.execute('SELECT * FROM EmployeeAccess WHERE Cat=?', (self.search,))
+        else:
+            cursor.execute('SELECT * FROM EmployeeAccess WHERE Emp_ID=?', (self.search,))
+
+
         result=cursor.fetchall()
         pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
         # pd.read_sql_query("SELECT * FROM EmployeeAccess", conn).to_excel('AccessSheet.xlsx')
